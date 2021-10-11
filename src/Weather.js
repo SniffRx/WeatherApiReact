@@ -6,7 +6,23 @@ const CityName = 'Kaluga';
 const ApiID = '297c67b07a1c365c1ba09ed002715c27';
 
 export default class Weather extends React.Component {
-    handleSubmit = event => {
+    
+    state = {weathers: []}
+
+    componentDidMount() {
+        API.get(`weather?q=${CityName}&appid=${ApiID}`)
+        .then(function (response) {
+        // handle success
+        console.log(response);
+        })
+    }
+    
+        render() {return(<div>{this.state.weathers.response}</div>)}
+}
+
+//{ this.state.persons.map(person => <li>{person.name}</li>)}
+
+    /*handleSubmit = event => {
     event.preventDefault();
     //https://api.openweathermap.org/data/2.5/weather?q=Kaluga&appid=297c67b07a1c365c1ba09ed002715c27
     API.get(`weather?q=${CityName}&appid=${ApiID}`)
@@ -16,5 +32,5 @@ export default class Weather extends React.Component {
       })
     }
     
-    render() {return (<div/>)}
-}
+    //render() {return (<div/>)}
+}*/
