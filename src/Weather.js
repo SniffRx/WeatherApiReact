@@ -11,26 +11,16 @@ export default class Weather extends React.Component {
 
     componentDidMount() {
         API.get(`weather?q=${CityName}&appid=${ApiID}`)
-        .then(function (response) {
+        .then(
+            res => {
+                const weathers = res.data;
+                this.setState({weathers: weathers.conversations});
+                console.log(weathers);
+            })
+            //function (response) {
         // handle success
-        console.log(response);
-        })
-    }
-    
-        render() {return(<div>{this.state.weathers.response}</div>)}
+        //console.log(response);
+        }
+    alert(state.weathers)
+        render() {return(<div>{this.state.weathers}</div>)}
 }
-
-//{ this.state.persons.map(person => <li>{person.name}</li>)}
-
-    /*handleSubmit = event => {
-    event.preventDefault();
-    //https://api.openweathermap.org/data/2.5/weather?q=Kaluga&appid=297c67b07a1c365c1ba09ed002715c27
-    API.get(`weather?q=${CityName}&appid=${ApiID}`)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-    }
-    
-    //render() {return (<div/>)}
-}*/
