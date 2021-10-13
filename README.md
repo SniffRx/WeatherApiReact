@@ -1,4 +1,4 @@
-# Weather API on React
+# Weather APP on React
 
 This project was created on React framework with OpenWeatherAPI.
 
